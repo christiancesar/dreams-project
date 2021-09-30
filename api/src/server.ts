@@ -1,23 +1,12 @@
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import routes from './routes';
-
-import { Kafka, logLevel } from 'kafkajs';
+import kafka from './provider/kafka';
 
 const server = express();
 
 server.use(cors())
 server.use(express.json())
-
-const kafka = new Kafka({
-  clientId: 'api',
-  brokers: ['localhost:9092'],
-  logLevel: logLevel.WARN,
-  retry: {
-    initialRetryTime: 300,
-    retries: 10
-  },
-});
 
 const producer = kafka.producer()
 const consumer = kafka.consumer({ groupId: 'users-group-receiver' })
