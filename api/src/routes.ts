@@ -1,16 +1,9 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
+import { UsersControllers } from "./Controllers/UsersController";
 
 const routes = Router();
+const usersControllers = new UsersControllers()
 
-routes.get('/users', async (request: Request, response: Response) => {
-  
-  await request.producer.send({
-    topic: 'dreams-users',
-    messages: [
-      { value: 'List All Users'}
-    ]
-  })
-  return response.send({ok : true});
-})
+routes.get('/users', usersControllers.create)
 
 export default routes;
