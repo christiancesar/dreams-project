@@ -4,6 +4,7 @@ import { UsersControllers } from "./Controllers/UsersController";
 const routes = Router();
 const usersControllers = new UsersControllers()
 
-routes.get('/users', usersControllers.create)
+routes.get('/users', usersControllers.index)
+routes.post('/users', usersControllers.create)
 
 export default routes;
