@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img height="150rem" src="../backend/assets/dreams-logo.png"/>
+  <img height="150rem" src="assets/logo.svg"/>
 </p>
 
 
