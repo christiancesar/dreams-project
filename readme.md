@@ -4,7 +4,28 @@
 </p>
 
 
+Dreams é um Projeto de Conclusão de Curso tem como objetivo aprofundar e por em prática alguns padrões de projetos listados pelos autores como Chris Richardson, Sam Newman, Marin Fowler, entre outros. No contexto da arquitetura de microsserviços.
 
+No decorrer do artigo faço uso desta aplicação para explificar e aplicar os conceitos abordados pelos autores. O objetivo principal deste projeto é mostrar a complexidad
+
+# Requirements 🛠️
+
+* Nodejs
+* KafkaJs
+* Docker
+* Docker Compose
+* Insomnia
+
+# Begin 🔰
+
+```bash
+$ git clone https://github.com/christiancesar/dreams-project.git
+
+$ git yarn
+
+#On project execute
+$ docker-compose up
+```
 # Topicos
 
 ## Dreams
