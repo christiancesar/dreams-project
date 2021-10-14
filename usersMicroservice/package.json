@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev:server": "ts-node-dev --trace-warnings --inspect --transpile-only --ignore-watch node_modules src/index.ts"
+    "dev:server": "ts-node-dev --trace-warnings --inspect --transpile-only --ignore-watch node_modules src/index.ts",
+    "prisma:migrate": "prisma migrate dev --schema=./src/provider/prisma/schema.prisma"
   },
   "devDependencies": {
     "ts-node": "^10.2.1",
@@ -12,6 +13,9 @@
     "typescript": "^4.4.3"
   },
   "dependencies": {
-    "kafkajs": "^1.15.0"
+    "@prisma/client": "^3.2.1",
+    "@types/node": "^16.10.9",
+    "kafkajs": "^1.15.0",
+    "prisma": "^3.2.1"
   }
 }
