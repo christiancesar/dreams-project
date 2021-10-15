@@ -13,14 +13,6 @@ export enum Action {
   LIST = "list",
   FIND = "find",
   ROLLBACK = "rollback",
-  CREATED = "created",
-  DELETED = "deleted",
-  UPDATED = "updated",
-  LISTED = "listed",
-  FOUND = "found",
-  FAILED = "failed",
-  ROLLBACKSUCCESS = "rollback:success",
-  ROLLBACKFAILED = "rollback:failed"
 }
 
 export class MessageTransfer {

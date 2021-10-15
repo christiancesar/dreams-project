@@ -21,6 +21,6 @@ model User {
 
   age Int
 
-  birthday DateTime
+  birthday String
 
 }

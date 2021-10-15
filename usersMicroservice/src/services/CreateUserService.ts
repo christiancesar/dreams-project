@@ -13,7 +13,8 @@ export class CreateUserService {
     last_name, 
     birthday, 
     age, 
-    email }: Omit<User, "id">): Promise<User> 
+    email 
+  }: Omit<User, "id">): Promise<User> 
   {
 
     const userAlreadyExist = await this.userRepository.findByEmail(email)

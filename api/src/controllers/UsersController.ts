@@ -2,9 +2,8 @@ import { Request, Response, Router } from "express";
 import { MessageTransfer, Action } from "../class/MessageTransfer";
 
 export interface User {
-  id: string;
-  firstName: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
   age: number;
   birthday: string;
   email: string;
@@ -12,12 +11,9 @@ export interface User {
 
 export class UsersControllers {
   async create(request: Request, response: Response): Promise<Response> {
-    const user = {
-      firstName: "Christian Cesar",
-      lastName: "Rodrigues",
-      age: 23,
-      birthday: "2021-11-01"
-    } as User
+    const { first_name, last_name, age, birthday, email } = request.body
+
+    const user = { first_name, last_name, age, birthday, email} as User
 
     const message = new MessageTransfer({
       action: Action.CREATE,
