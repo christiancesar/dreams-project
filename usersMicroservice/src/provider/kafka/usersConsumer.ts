@@ -1,4 +1,4 @@
-import { MessageBody } from "../../../class/MessageTransfer"
+import { MessageBody } from "../../../@types/MessageTransfer"
 import { executeActions } from "../../utils/executeActions"
 import { kafka } from "./index"
 

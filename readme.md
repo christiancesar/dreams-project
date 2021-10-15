@@ -35,12 +35,13 @@ $ docker-compose up
 ## Users
 - [x] users-dreams -> Comunicação entre Users e api
 
-# Test
+# To-do
 
+**Backend**
 - [x] Isolar regra de negocio do **Producer** e **Cosumer** para que possa ser usado em toda api e microsserviços, um exemplo seria https://www.sohamkamani.com/nodejs/working-with-kafka/
 
 
-- [ ] A api tem de receber a requisição e disparar para o microsserviços uma String com o que deseja, exemplo seria: 
+- [x] A api tem de receber a requisição e disparar para o microsserviços uma String com o que deseja, exemplo seria: 
   ```ts
     await request.producer.send({
       topic: 'dreams-users',
@@ -51,7 +52,19 @@ $ docker-compose up
   ````
   E esperar uma resposta, incialmente é apenas para compreender o funcionamento. 
 
-- [ ] Por fim listar no frontend a informação de usuários
+- [x] Inclusão de um banco de dados dentro do microsserviço de usuários
+
+- [x] Analisar o uso do PrismaJs ou TypeOrm
+
+- [x] Fazer uso do Prisma para criação de banco de dados, isolar a camada de banco usando Repository Pattern
+
+- [x] Fazer teste de conexão, inclusão de informações e listagem
+
+- [x] Criar usuário enviando informações atrávez do insomnia para a api, a api deve enviar essas informações para o microsserviço que deverá salvar dentro de um banco de dados Postgres
+
+- [ ] Terminar CRUD dos usuários
+
+- [ ] Fazer teste com o Frontend
  
 
 ### Ideia
@@ -59,6 +72,8 @@ $ docker-compose up
 -> O sistema deve fornecer pacotes incluindo passagens areas, hotel e translado;
 -> O sistema deve prover informações completas referentes aos voos, hotel(endereço, checkOut, checkIn), translado;
 -> Após a confirmação de pagamento, através do Stripe, o sistema deve salvar todas as informações do pacote e deixar disponivel no dashboard do usuario, o pacote adquirido;
+
+? O carregamento das informações devem ser feitas via kafka ou gRPC
 
 ### User
 - Cadastrar usuario dentro do sistema
@@ -70,4 +85,4 @@ $ docker-compose up
 
 ### Dreams
   -> Para que a consulta seja feita de forma mais rápida, a API Gatway persistirá os dados dentro de um banco de dados NoSql(MongoDB)
-  -> Os dados apenas serão salvos após a confirmação através do tópico
+  

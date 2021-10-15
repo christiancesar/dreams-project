@@ -1,4 +1,4 @@
-import { Action, MessageTransfer, Status } from "../../class/MessageTransfer";
+import { Action, MessageTransfer, Status } from "../../@types/MessageTransfer";
 import { ICreateUser } from "../dtos/ICreateUser";
 import { usersProducer } from "../provider/kafka/usersProducer";
 import { CreateUserService } from "../services/CreateUserService";

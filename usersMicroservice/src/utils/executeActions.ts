@@ -1,4 +1,4 @@
-import { Action, MessageBody } from "../../class/MessageTransfer";
+import { Action, MessageBody } from "../../@types/MessageTransfer";
 import { UsersControllers } from "../controllers/UsersControllers";
 
 interface CreateUser {
