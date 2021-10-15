@@ -4,6 +4,12 @@ export interface MessageBody {
   from: string;
   timestamp: Date;
   data?: any;
+  status: Status
+  errorDescribe?: string
+}
+export enum Status {
+  SUCCESS = "success",
+  ERROR = "error",
 }
 
 export enum Action {
@@ -13,14 +19,6 @@ export enum Action {
   LIST = "list",
   FIND = "find",
   ROLLBACK = "rollback",
-  CREATED = "created",
-  DELETED = "deleted",
-  UPDATED = "updated",
-  LISTED = "listed",
-  FOUND = "found",
-  FAILED = "failed",
-  ROLLBACKSUCCESS = "rollback:success",
-  ROLLBACKFAILED = "rollback:failed"
 }
 
 export class MessageTransfer {
@@ -29,13 +27,18 @@ export class MessageTransfer {
   private from: string;
   private timestamp: Date;
   private data: any;
+  private status: string;
+  private errorDescribe?: string
 
-  constructor({ action, from, data }: Omit<MessageBody, "to" | "timestamp">) {
+  constructor({ action, from, data, status, errorDescribe }: Omit<MessageBody, "to" | "timestamp">) {
     this.action = action
-    this.to = "dreams"
+    this.to = "users"
     this.from = from
     this.timestamp = new Date()
     this.data = data
+    this.status = status
+    this.errorDescribe = errorDescribe
+
   }
 
 }

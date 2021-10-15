@@ -1,5 +1,4 @@
 import { User } from ".prisma/client";
-import { ICreateUser } from "../../dtos/ICreateUser";
 import { prisma } from "../../provider/prisma";
 import { IUsersRepository } from "../interfaces/IUsersRepository";
 
