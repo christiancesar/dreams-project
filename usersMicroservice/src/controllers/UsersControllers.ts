@@ -1,3 +1,4 @@
+import { Action, MessageTransfer } from "../../class/MessageTransfer";
 import { ICreateUser } from "../dtos/ICreateUser";
 import { usersProducer } from "../provider/kafka/usersProducer";
 import { CreateUserService } from "../services/CreateUserService";
@@ -44,12 +45,16 @@ export class UsersControllers {
   async index() {
     const users = await this.listUsersService.execute()
 
-    const usersFormatted = JSON.stringify(users);
+    const message = new MessageTransfer({
+      action: Action.LISTED,
+      from: "dreams",
+      data: users
+    })
 
     usersProducer.send({
       topic: 'users-dreams',
       messages: [
-        { value: usersFormatted }
+        { value: JSON.stringify(message) }
       ]
     })
   }

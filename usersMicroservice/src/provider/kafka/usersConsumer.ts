@@ -1,11 +1,8 @@
+import { MessageBody } from "../../../class/MessageTransfer"
+import { executeActions } from "../../utils/executeActions"
 import { kafka } from "./index"
-import { UsersControllers } from "../../controllers/UsersControllers"
 
-
-
-const usersControllers = new UsersControllers()
-
-export const usersConsumer = async() => {
+export const usersConsumer = async () => {
   const topic = 'dreams-users'
   const consumer = kafka.consumer({ groupId: 'users-group' })
 
@@ -16,7 +13,8 @@ export const usersConsumer = async() => {
     eachMessage: async ({ topic, partition, message }) => {
       const prefix = `${topic}[${partition} | ${message.offset}] / ${message.timestamp}`
       console.log(`- ${prefix} ${message.key}#${message.value}`)
-      await usersControllers.index()
+      const data = JSON.parse(message.value.toString()) as MessageBody
+      await executeActions(data)
     }
   })
 }
