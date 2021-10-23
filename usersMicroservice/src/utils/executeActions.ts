@@ -8,6 +8,7 @@ interface CreateUser {
   birthday: string;
   email: string;
 }
+
 const usersControllers = new UsersControllers()
 
 export async function executeActions(currier: MessageBody) {
