@@ -23,6 +23,8 @@ $ git clone https://github.com/christiancesar/dreams-project.git
 
 $ git yarn
 
+$ docker run --name dreams -e POSTGRES_USER=dreams -e POSTGRES_PASSWORD=dreams -d -p 5432:5432 postgres
+
 #On project execute
 $ docker-compose up
 ```
