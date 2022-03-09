@@ -1,4 +1,4 @@
-import { Action, MessageTransfer, Status } from "../../@types/MessageTransfer";
+import { Action, MessageTransfer, Status } from "../../../common/@types/MessageTransfer";
 import { ICreateUser } from "../dtos/ICreateUserDTO";
 import { usersProducer } from "../provider/kafka/usersProducer";
 import { CreateUserService } from "../services/CreateUserService";
@@ -45,6 +45,7 @@ export class UsersControllers {
     } catch (error) {
       const message = new MessageTransfer({
         action: Action.CREATE,
+        to: "users",
         from: "dreams",
         status: Status.ERROR
       })
@@ -65,6 +66,7 @@ export class UsersControllers {
 
       const message = new MessageTransfer({
         action: Action.LIST,
+        to: "users",
         from: "dreams",
         data: users,
         status: Status.SUCCESS
@@ -79,6 +81,7 @@ export class UsersControllers {
     } catch (error: any) {
       const message = new MessageTransfer({
         action: Action.LIST,
+        to: "users",
         from: "dreams",
         status: Status.ERROR,
         errorDescribe: error.message

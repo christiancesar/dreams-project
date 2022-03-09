@@ -4,6 +4,15 @@ export interface MessageBody {
   from: string;
   timestamp: Date;
   data?: any;
+  status?: Status
+  errorDescribe?: string
+}
+export enum Status {
+  PENDING = "pedding",
+  REJECTED = "rejected",
+  CANCELLED = "cancelled",
+  SUCCESS = "success",
+  ERROR = "error",
 }
 
 export enum Action {
@@ -21,13 +30,18 @@ export class MessageTransfer {
   private from: string;
   private timestamp: Date;
   private data: any;
+  private status: string | undefined;
+  private errorDescribe?: string
 
-  constructor({ action, from, data }: Omit<MessageBody, "to" | "timestamp">) {
+  constructor({ action, from, to, data, status, errorDescribe }: Omit<MessageBody, "timestamp">) {
     this.action = action
-    this.to = "dreams"
+    this.to = to
     this.from = from
     this.timestamp = new Date()
     this.data = data
+    this.status = status
+    this.errorDescribe = errorDescribe
+
   }
 
 }

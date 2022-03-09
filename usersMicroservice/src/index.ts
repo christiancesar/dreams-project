@@ -1,4 +1,4 @@
-import AppError from "../@types/AppError"
+import AppError from "../../common/@types/AppError"
 import { UsersControllers } from "./controllers/UsersControllers"
 import { usersConsumer } from "./provider/kafka/usersConsumer"
 import { usersProducer, usersProducerConnect } from "./provider/kafka/usersProducer"

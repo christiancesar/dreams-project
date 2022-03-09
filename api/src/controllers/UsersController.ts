@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express";
-import { MessageTransfer, Action } from "../class/MessageTransfer";
+import { MessageTransfer, Action, Status } from "../../../common/@types/MessageTransfer";
 
 export interface User {
   first_name: string;
@@ -18,6 +18,7 @@ export class UsersControllers {
     const message = new MessageTransfer({
       action: Action.CREATE,
       data: user,
+      to: "dreams",
       from: "microservice-users"
     })
 
@@ -33,6 +34,7 @@ export class UsersControllers {
   async index(request: Request, response: Response): Promise<Response> {
     const message = new MessageTransfer({
       action: Action.LIST,
+      to: "dreams",
       from: "microservice-users"
     })
 
